@@ -21,7 +21,8 @@ export function loginUser(req, res) {
         lastName: user.lastName,
         email: user.email,
         role: user.role,
-        profilePicture: user.profilePicture
+        profilePicture: user.profilePicture,
+        phone: user.phone
        }, process.env.JWT_SECRET)
       res.json({ message: "Login successful", token: token })
 
@@ -45,4 +46,26 @@ export function registerUser(req, res) {
   }).catch((error) => {
     res.status(500).json({ error: error.message })
   })
+}
+
+export function isItAdmin(req){
+ let isItAdmin = false;
+    if(req.user == null){   
+        if(req.user.role === "admin"){
+          isItAdmin = true;
+        }
+    }
+    return isItAdmin;
+}
+
+export function isItCustomer(req) {
+	let isCustomer = false;
+
+	if (req.user != null) {
+		if (req.user.role == "customer") {
+			isCustomer = true;
+		}
+	}
+
+	return isCustomer;
 }

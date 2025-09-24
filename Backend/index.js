@@ -14,7 +14,7 @@ dotenv.config()
 
 const app = express()
 
-app.use(cors()); // Enable CORS for all routes
+app.use(cors());
 
 //Middleware for adding products (Token)
 

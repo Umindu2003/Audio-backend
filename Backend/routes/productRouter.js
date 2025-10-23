@@ -7,5 +7,5 @@ productRouter.post("/", addProduct);
 productRouter.get("/", getProducts);
 productRouter.put("/:key", updateProduct);
 productRouter.delete("/:key", deleteProduct);
-
+productRouter.get("/:key",getProducts)
 export default productRouter;

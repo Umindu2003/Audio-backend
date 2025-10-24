@@ -14,6 +14,11 @@ import mongoose from "mongoose";
       type: String,
       required: true
     },
+    isBlocked : {
+      type : Boolean,
+      required : true,
+      default : false
+    },
     email: {
       type: String,
       required: true,
